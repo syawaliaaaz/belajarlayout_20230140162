@@ -21,21 +21,22 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Composable untuk Column sederhana
+// --- Fungsi 1: Column Sederhana ---
 @Composable
 fun TataletakColum(modifier: Modifier) {
     Column(modifier = modifier.padding(top = 20.dp, start = 20.dp, end = 20.dp)) {
         Text(text = "Komponen1")
         Text(text = "Komponen2")
-        Text(text = "Komponen3") // Disesuaikan dari "Komponan" dan "Kam"
-        Text(text = "Komponen4") // Disesuaikan dari "Komponen"
+        Text(text = "Komponen3")
+        Text(text = "Komponen4")
     }
 }
 
-// Composable untuk Row sederhana
+// --- Fungsi 2: Row Sederhana ---
 @Composable
 fun TataletakRow(modifier: Modifier) {
     Row(
@@ -49,7 +50,7 @@ fun TataletakRow(modifier: Modifier) {
     }
 }
 
-// Composable untuk Box sederhana
+// --- Fungsi 3: Box Sederhana ---
 @Composable
 fun TataletakBox(modifier: Modifier) {
     Box(
@@ -66,7 +67,7 @@ fun TataletakBox(modifier: Modifier) {
     }
 }
 
-// Composable untuk Row di dalam Column
+// --- Fungsi 4: Row di dalam Column ---
 @Composable
 fun TataletakColumRow(modifier: Modifier) {
     Column {
@@ -91,3 +92,98 @@ fun TataletakColumRow(modifier: Modifier) {
     }
 }
 
+// --- Fungsi 5: Column di dalam Row (Ini Missing di kode Anda sebelumnya) ---
+@Composable
+fun TataletakRowColum(modifier: Modifier) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceEvenly
+    ) {
+        Column {
+            Text(text = "Komponen1Kolom1")
+            Text(text = "Komponen2Kolom1")
+        }
+        Column {
+            Text(text = "Komponen3Kolom2")
+            Text(text = "Komponen4Kolom2")
+        }
+    }
+}
+
+// --- Fungsi 6: Layout Kompleks (Ini juga Missing dan sering jadi sumber error) ---
+@Composable
+fun TataletakBoxColumnRow(modifier: Modifier) {
+    // ERROR UTAMA: R.drawable.notasinaton
+    // Jika Anda mengalami error di sini, pastikan file gambar ada di folder res/drawable
+    val gambar = painterResource(id = R.drawable.notasinaton)
+
+    Column {
+        Box(
+            modifier = modifier
+                .height(110.dp)
+                .background(color = Color.Yellow)
+                .fillMaxWidth(), // Tambahkan fillMaxWidth agar Box memenuhi lebar
+            contentAlignment = Alignment.Center
+        ) {
+            Column {
+                // Row 1
+                Row(
+                    modifier = modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    Text(text = "Col1 Row1 Komponen1")
+                    Text(text = "Col1 Row1 Komponen2")
+                    Text(text = "Col1 Row1 Komponen3")
+                }
+                // Row 2
+                Row(
+                    modifier = modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    Text(text = "Col1 Row2 Komponen1")
+                    Text(text = "Col1 Row2 Komponen2")
+                    Text(text = "Col1 Row2 Komponen3")
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Box(
+            modifier = modifier
+                .fillMaxWidth()
+                .height(300.dp)
+                .background(color = Color.Cyan),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                painter = gambar,
+                contentDescription = null,
+                contentScale = ContentScale.Fit
+            )
+            Text(
+                text = "My Design",
+                fontSize = 50.sp,
+                color = Color.Red,
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Cursive,
+                modifier = Modifier.align(Alignment.Center)
+            )
+        }
+    }
+}
+
+
+// --- Fungsi Preview untuk melihat hasil (Ini juga sering menyebabkan error jika hilang) ---
+@Preview(showBackground = true)
+@Composable
+fun TataletakPreview() {
+    Column {
+        TataletakColum(modifier = Modifier.padding(10.dp))
+        TataletakRow(modifier = Modifier.padding(10.dp))
+        TataletakBox(modifier = Modifier.height(100.dp).fillMaxWidth())
+        TataletakColumRow(modifier = Modifier.padding(10.dp))
+        TataletakRowColum(modifier = Modifier.padding(10.dp))
+        // TataletakBoxColumnRow tidak disertakan dalam preview ini karena membutuhkan resource R.drawable
+    }
+}
