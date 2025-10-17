@@ -35,3 +35,59 @@ fun TataletakColum(modifier: Modifier) {
     }
 }
 
+// Composable untuk Row sederhana
+@Composable
+fun TataletakRow(modifier: Modifier) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceEvenly
+    ) {
+        Text(text = "Komponen1")
+        Text(text = "Komponen2")
+        Text(text = "Komponen3")
+        Text(text = "Komponen4")
+    }
+}
+
+// Composable untuk Box sederhana
+@Composable
+fun TataletakBox(modifier: Modifier) {
+    Box(
+        modifier = modifier
+            .fillMaxHeight()
+            .fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(text = "Box 1")
+        Text(text = "Column 1")
+        Text(text = "Row 1")
+        Text(text = "Text 2")
+        Text(text = "Text 212")
+    }
+}
+
+// Composable untuk Row di dalam Column
+@Composable
+fun TataletakColumRow(modifier: Modifier) {
+    Column {
+        // Baris 1
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Text(text = "Komponen1 Baris1")
+            Text(text = "Komponen2 Baris1")
+            Text(text = "Komponen3 Baris1")
+        }
+        // Baris 2
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Text(text = "Komponen1 Baris2")
+            Text(text = "Komponen2 Baris2")
+            Text(text = "Komponen3 Baris2")
+        }
+    }
+}
+
