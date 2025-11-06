@@ -15,6 +15,7 @@ import com.example.belajarlayout_20230140162.ui.theme.BelajarLayout_20230140162T
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             // Ganti nama Theme jika nama proyek Anda berbeda
             BelajarLayout_20230140162Theme {
