@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">belajarlayout_20230140162</string>
+=======
+    <string name="app_name">Belajarlayout_20230140162</string>
+>>>>>>> b4d1c80d1f757d0837973f26c802b1b7181d06ed
 </resources>

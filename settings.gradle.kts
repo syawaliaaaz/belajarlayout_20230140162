@@ -19,6 +19,10 @@ dependencyResolutionManagement {
     }
 }
 
+<<<<<<< HEAD
 rootProject.name = "belajarlayout_20230140162"
+=======
+rootProject.name = "Belajarlayout_20230140162"
+>>>>>>> b4d1c80d1f757d0837973f26c802b1b7181d06ed
 include(":app")
  
