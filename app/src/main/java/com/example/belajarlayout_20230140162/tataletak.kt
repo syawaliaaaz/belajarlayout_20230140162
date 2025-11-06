@@ -193,7 +193,7 @@ fun TataletakBoxColumnRow(modifier: Modifier) {
             )
             Text(
                 text = "Musik",
-                fontSize = 50.sp,
+                fontSize = 60.sp,
                 color = Color.Red,
                 fontFamily = FontFamily.Cursive,
                 modifier = Modifier.align(
